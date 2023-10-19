@@ -3,3 +3,5 @@
 /db.sqlite3
 /userauth/migrations/
 /.env
+
+__pycache__
