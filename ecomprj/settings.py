@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin', # Add this line before 'django.contrib.admin'
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -40,6 +41,7 @@ INSTALLED_APPS = [
 
     # Custom Apps:
     'core',
+    'userauth',
 ]
 
 MIDDLEWARE = [
@@ -138,3 +140,13 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+JAZZMIN_SETTINGS = {
+    "site_title": "Ecommerce",
+    "site_header": "Admin Panel",
+    "welcome_sign": "Welcome",
+    "search_model": "auth.User",
+    "user_avatar": None
+    }
+
+AUTH_USER_MODEL = 'userauth.User'
