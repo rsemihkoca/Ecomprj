@@ -4,10 +4,17 @@ from userauth.models import User
 
 
 class UserRegistrationForm(UserCreationForm):
+
+
+    username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Username'}), required=True)
+    email = forms.EmailField(widget=forms.EmailInput(attrs={'placeholder': 'Email'}), required=True)
+    password1 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Password'}), required=True)
+    password2 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Confirm password'}), required=True)
+
     class Meta:
         model = User
         # Register sayfasında kullanıcıdan email, password1 ve password2 bilgilerini alıyoruz.
-        fields = ['email', 'password1', 'password2']
+        fields = ['username', 'email']
 
 
     # template_name = 'base/register.html'
