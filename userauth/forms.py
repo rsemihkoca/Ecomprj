@@ -6,7 +6,8 @@ from userauth.models import User
 class UserRegistrationForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ['username', 'email', 'password1', 'password2']
+        # Register sayfasında kullanıcıdan email, password1 ve password2 bilgilerini alıyoruz.
+        fields = ['email', 'password1', 'password2']
 
 
     # template_name = 'base/register.html'

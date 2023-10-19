@@ -1,1 +1,4 @@
 /.idea/
+/Ecomprj.iml
+/db.sqlite3
+/userauth/migrations/

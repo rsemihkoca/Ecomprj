@@ -7,7 +7,7 @@ from django.contrib import messages
 def register_view(request):
 
     if request.method == 'POST':
-        form = UserRegistrationForm(request.POST or None)
+        form = UserRegistrationForm(request.POST)
 
         if form.is_valid():
             new_user = form.save()
