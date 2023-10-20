@@ -1047,3 +1047,18 @@
 </body>
 
 </html>
+
+{% comment %} allert message {% endcomment %}
+{% comment %}
+{% if messages %}
+{% for message in messages %}
+    <div class="alert alert-{{message.tags}}">
+        <strong>{{ message }}</strong>
+    </div>
+{% endfor %}
+{% endif %}
+<script>
+setTimeout (() => {
+    $(".alert").alert("close");
+}, 3000)
+</script> {% endcomment %}
