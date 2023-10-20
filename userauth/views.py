@@ -2,9 +2,7 @@ from django.shortcuts import render, redirect
 from userauth.forms import UserRegistrationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from django.conf import settings
-
-User = settings.AUTH_USER_MODEL
+from userauth.models import User
 
 # Create your views here.
 def register_view(request):
@@ -44,8 +42,8 @@ def login_view(request):
 
         try:
             user = User.objects.get(email=email)
-        except User.DoesNotExist:
-            messages.warning(request, f"User with email {email} does not exist")
+        except Exception as e:
+            messages.error(request, 'User does not exist')
 
 
         user = authenticate(
@@ -64,4 +62,6 @@ def login_view(request):
 
 
 def logout_view(request):
-    return None
+    logout(request)
+    messages.success(request, 'You have been logged out')
+    return redirect('userauth:login')

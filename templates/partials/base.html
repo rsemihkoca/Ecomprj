@@ -297,7 +297,12 @@
                                         <li><a href="{% static 'page-account.html' %}"><i class="fi fi-rs-label mr-10"></i>My Voucher</a></li>
                                         <li><a href="{% static 'shop-wishlist.html' %}"><i class="fi fi-rs-heart mr-10"></i>My Wishlist</a></li>
                                         <li><a href="{% static 'page-account.html' %}"><i class="fi fi-rs-settings-sliders mr-10"></i>Setting</a></li>
-                                        <li><a href="{% static 'page-login.html' %}"><i class="fi fi-rs-sign-out mr-10"></i>Sign out</a></li>
+
+                                        {% if request.user.is_authenticated %}
+                                        <li><a href="{% url 'userauth:logout' %}"><i class="fi fi-rs-sign-out mr-10"></i>Sign out</a></li>
+                                        {% else %}
+                                        <li><a href="{% url 'userauth:login' %}"><i class="fi fi-rs-sign-in mr-10"></i>Sign in</a></li>
+                                        {% endif %}
                                     </ul>
                                 </div>
                             </div>

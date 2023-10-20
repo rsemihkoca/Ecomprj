@@ -18,6 +18,7 @@ class User(AbstractUser):
     date_joined = models.DateTimeField(auto_now_add=True)
 
     USERNAME_FIELD = "email"
-    REQUIRED_FIELDS = []
+    # Superuser oluştururken kullanılacak alanlar
+    REQUIRED_FIELDS = ["username"]
     def __str__(self):
         return self.username
